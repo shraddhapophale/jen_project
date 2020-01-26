@@ -1,0 +1,20 @@
+--- 
+- hosts: server
+  become: yes
+  tasks: 
+    - name: install apache webserver
+      yum: name=httpd state=latest
+    - name: index.html
+      copy:
+        src: /home/ditiss/Desktop/index.html
+        dest: /var/www/html/index.html
+    - name: 2.2.10 Ensure HTTP server is not enabled (Scored) 
+      service:
+        name: httpd
+        state: started
+    - name: disable selinux
+      command: /sbin/setenforce 0
+#  handlers:
+#    - name: checking status
+#      service:
+     
