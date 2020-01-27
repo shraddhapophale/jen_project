@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import subprocess
 list_files = subprocess.run(["ansible-playbook", "abc.yml", "-K"])
